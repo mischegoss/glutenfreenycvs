@@ -19,7 +19,7 @@ window.google.maps.event.trigger(marker, 'click')
         const { searchVenues, query, searchedVenues } = this.props
         return (
             <div className="sidebar-container" role="menu">
-                <h1 className="main-heading" aria-label="New York City heading">Find Gluten-Free Eats in NYC</h1>
+                <h1 className="main-heading" aria-label="New York City heading">Find Kosher Eats in NYC</h1>
 
 
                 {/*search bar*/}
@@ -29,8 +29,8 @@ window.google.maps.event.trigger(marker, 'click')
                              tabIndex="0">
                             <input
                                 type="text"
-                                placeholder="Search for Gluten-Free Spotes in NYC"
-                                aria-label="Search for gluten-free in New York City"
+                                placeholder="Search for Kosher Spots in NYC"
+                                aria-label="Search for kosher spots in New York City"
                                 role="search"
                                 value={query}
                                 onChange={(event) => searchVenues(event.target.value)}

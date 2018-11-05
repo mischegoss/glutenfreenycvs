@@ -3,7 +3,7 @@ import './App.css';
 import Sidebar from './Sidebar';
 import Map from './Map';
 import ErrorBoundary from './ErrorBoundary';
-//import escapeRegExp from 'escape-string-regexp';
+
 
 /* global google */
 
@@ -29,7 +29,7 @@ class App extends Component {
         const client_id = "UWC20WUKC14OQHITOGLNC00ODBMDG11LKT54IYOBHMJ2I4PO"
         const client_secret = "PA52KLN40FOQWBWRJP1PWMJJ120DE5DMNW53O0SVR33DXLWG"
         const version = "20181105"
-        const venueid = "4c2cd86ed066bed06c3c5209"
+        const venueid = "52e81612bcbc57f1066b79fc"
         const radius = 5000
         const limit = 10
 
@@ -66,13 +66,11 @@ class App extends Component {
         const markers = []
         if (map && searchedVenues.length > 0 && markers.length === 0) {
           searchedVenues.forEach((venue, index) => {
-              //initialize animated markers
+
               const marker = new google.maps.Marker({
                   map: map,
                   position: venue.location,
                   name: venue.name,
-
-                  //animation: google.maps.Animation.DROP,
                   id: index
               })
               //marker is briefly animated when clicked
@@ -86,22 +84,21 @@ class App extends Component {
                       }, 100)
                   }
               })
-              //marker displays infowindow when clicked
+
               marker.addListener('click', function() {
                   fillInfoWindow(this, mapInfoWindow)
               })
-              //push markers to state
+
               markers.push(marker)
           })
 
-          //create infowindow
+
           const mapInfoWindow = new google.maps.InfoWindow()
 
-          //populate infowindow
           function fillInfoWindow (marker, infowindow) {
               const infoWindowContent = `<p>${marker.name}</p>`
 
-              //check whether infowindow is already open
+
               if (infowindow.marker !== marker) {
                   infowindow.marker = marker
                   infowindow.setContent(infoWindowContent)
@@ -115,21 +112,21 @@ class App extends Component {
       }
     }
 
-    //filters through points of interest & updates UI based on result
+
     searchVenues = (query) => {
         this.setState({ query })
-        //access state
+
         const { markers, coffeeVenues } = this.state
         if (query) {
 
             const match = new RegExp(query, 'i')
-          //  markers.forEach((marker) => {
-          //      marker.setVisible(false)
-          //  })
+            markers.forEach((marker) => {
+                marker.setVisible(false)
+           })
 
             this.setState({
                 searchedVenues: coffeeVenues.filter((coffeeVenue) => match.test(coffeeVenue.name)),
-                searchedMarkers: markers.filter((marker) => match.test(marker.title))
+                searchedMarkers: markers.filter((marker) => match.test(marker.name))
                                         .forEach((marker) => marker.setVisible(true))
             })
         } else {
@@ -160,7 +157,7 @@ class App extends Component {
         </div>
     )}}
 
-/*SOURCE: https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/ AND https://github.com/filamentgroup/loadJS*/
+
 function loadJS(src) {
     var ref = window.document.getElementsByTagName("script")[0];
     var script = window.document.createElement("script");
