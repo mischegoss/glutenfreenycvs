@@ -7,7 +7,11 @@ class Sidebar extends Component {
     markerAnimation (coffeeVenue) {
         const { markers } = this.props
         markers.forEach(function (marker) {
-            marker.title === coffeeVenue ? window.google.maps.event.trigger(marker, 'click') : ''
+          if (marker.name === coffeeVenue) {
+window.google.maps.event.trigger(marker, 'click')
+} else {
+
+}
         })
     }
 
