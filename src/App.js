@@ -73,21 +73,20 @@ class App extends Component {
                   name: venue.name,
                   id: index
               })
-              //marker is briefly animated when clicked
+
               marker.addListener('click', function() {
                   if (marker.getAnimation() !== null) {
                       marker.setAnimation(null)
                   } else {
+                      fillInfoWindow(this, mapInfoWindow)
                       marker.setAnimation(google.maps.Animation.BOUNCE)
                       setTimeout(function() {
                           marker.setAnimation(null)
                       }, 100)
+
                   }
               })
 
-              marker.addListener('click', function() {
-                  fillInfoWindow(this, mapInfoWindow)
-              })
 
               markers.push(marker)
           })
