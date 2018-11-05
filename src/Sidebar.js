@@ -15,7 +15,7 @@ class Sidebar extends Component {
         const { searchVenues, query, searchedVenues } = this.props
         return (
             <div className="sidebar-container" role="menu">
-                <h1 className="main-heading" aria-label="Wheeling heading">Wheeling Coffee Shops!</h1>
+                <h1 className="main-heading" aria-label="New York City heading">Find Gluten-Free Eats in NYC</h1>
 
 
                 {/*search bar*/}
@@ -25,8 +25,8 @@ class Sidebar extends Component {
                              tabIndex="0">
                             <input
                                 type="text"
-                                placeholder="Search for coffee shop"
-                                aria-label="Search for coffee shop"
+                                placeholder="Search for Gluten-Free Spotes in NYC"
+                                aria-label="Search for gluten-free in New York City"
                                 role="search"
                                 value={query}
                                 onChange={(event) => searchVenues(event.target.value)}
@@ -36,7 +36,7 @@ class Sidebar extends Component {
                 </div>
 
                 {/*list of places*/}
-                <div className="sidebar-places-container" role="listbox">
+                <div className="sidebar-places-container" role="list">
                     <ul className="sidebar-places-list">
                             {searchedVenues.map((coffeeVenue) =>
                                 <li key={coffeeVenue.id}>
@@ -49,6 +49,8 @@ class Sidebar extends Component {
                             )}
                     </ul>
                 </div>
+
+
             </div>
         )
     }

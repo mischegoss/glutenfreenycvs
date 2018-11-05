@@ -122,7 +122,7 @@ class App extends Component {
         const { markers, coffeeVenues } = this.state
         if (query) {
 
-            const match = (query, 'i')
+            const match = new RegExp(query, 'i')
           //  markers.forEach((marker) => {
           //      marker.setVisible(false)
           //  })
