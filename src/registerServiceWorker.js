@@ -1,3 +1,7 @@
+
+/* This is the service worker. It is not deployed because the app is still in development */
+
+
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives

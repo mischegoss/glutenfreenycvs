@@ -53,7 +53,7 @@ a:active {
 .search-places-bar {
   display: block;
   margin: 0 auto;
-  width: 90%;
+  width: 70%;
   z-index: 5;
   box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
   border: 1px solid grey;
