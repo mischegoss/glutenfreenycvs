@@ -17,7 +17,7 @@ class App extends Component {
     markers: [],
     infoWindow: null,
     query: "",
-    coffeeVenues: [],
+    kosherVenues: [],
     searchedVenues: [],
     searchedMarkers: []
   };
@@ -41,7 +41,7 @@ class App extends Component {
       .then(data => {
         this.setState(
           {
-            coffeeVenues: data.response.venues,
+            kosherVenues: data.response.venues,
             searchedVenues: data.response.venues
           },
 
@@ -94,6 +94,7 @@ class App extends Component {
           name: venue.name,
           id: index,
           animation: window.google.maps.Animation.DROP
+
         });
 
         marker.addListener("click", () => {
@@ -101,7 +102,7 @@ class App extends Component {
           if (marker.getAnimation() !== null) {
             marker.setAnimation(null);
           } else {
-            this.fillInfoWindow(marker);
+            this.setInfoWindow(marker);
             marker.setAnimation(google.maps.Animation.BOUNCE);
             setTimeout(() => {
               marker.setAnimation(null);
@@ -115,7 +116,7 @@ class App extends Component {
     this.setState({ markers });
   };
 
-  fillInfoWindow = marker => {
+  setInfoWindow = marker => {
     const { infoWindow, map } = this.state;
     const infoWindowContent = `<p>${marker.name}</p>`;
 
@@ -132,7 +133,7 @@ class App extends Component {
   searchVenues = query => {
     this.setState({ query });
 
-    const { markers, coffeeVenues } = this.state;
+    const { markers, kosherVenues } = this.state;
     if (query) {
       const match = new RegExp(query, "i");
       markers.forEach(marker => {
@@ -140,8 +141,8 @@ class App extends Component {
       });
 
       this.setState({
-        searchedVenues: coffeeVenues.filter(coffeeVenue =>
-          match.test(coffeeVenue.name)
+        searchedVenues: kosherVenues.filter(kosherVenue =>
+          match.test(kosherVenue.name)
         ),
         searchedMarkers: markers
           .filter(marker => match.test(marker.name))
@@ -150,21 +151,21 @@ class App extends Component {
     } else {
       markers.map(marker => marker.setVisible(true));
       this.setState({
-        searchedVenues: coffeeVenues,
+        searchedVenues: kosherVenues,
         searchedMarkers: markers
       });
     }
   };
 
   render() {
-    const { searchedVenues, markers, coffeeVenues } = this.state;
+    const { searchedVenues, markers, kosherVenues } = this.state;
     return (
       <div className="app">
         <ErrorBoundary>
           <div>
             <Map />
             <Sidebar
-              coffeeVenues={coffeeVenues}
+              kosherVenues={kosherVenues}
               searchedVenues={searchedVenues}
               markers={markers}
               searchVenues={this.searchVenues}

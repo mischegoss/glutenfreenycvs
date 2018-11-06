@@ -22,7 +22,7 @@ class Sidebar extends Component {
         {/*search bar*/}
         <div className="search-places">
           <div className="search-places-bar">
-            <div className="search-places-input" tabIndex="0">
+            <div className="search-places-input" tabIndex="1">
               <input
                 type="text"
                 placeholder="Search for Kosher Spots in NYC"
@@ -38,15 +38,15 @@ class Sidebar extends Component {
         {/*list of places*/}
         <div className="sidebar-places-container" role="list">
           <ul className="sidebar-places-list">
-            {searchedVenues.map(coffeeVenue => (
-              <li key={coffeeVenue.id}>
+            {searchedVenues.map(kosherVenue => (
+              <li key={kosherVenue.id}>
                 <a
                   role="listitem"
-                  tabIndex="0"
+                  tabIndex="2"
                   onClick={() => {
-                    this.clickedVenue(coffeeVenue.name);
+                    this.clickedVenue(kosherVenue.name);
                   }}>
-                  {coffeeVenue.name}
+                  {kosherVenue.name}
                 </a>
               </li>
             ))}

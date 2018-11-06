@@ -7,6 +7,7 @@ class Map extends Component {
         return (
             <div id="map"
                  role="application"
+                 tabIndex="3"
                  className="map-style">
              </div>
         )
