@@ -20,7 +20,6 @@ class Sidebar extends Component {
           Find Kosher Eats in NYC
         </h1>
 
-
         <div className="search-places">
           <div className="search-places-bar">
             <div className="search-places-input" tabIndex="1">
@@ -36,7 +35,11 @@ class Sidebar extends Component {
           </div>
         </div>
 
-        <div className="sidebar-places-container" aria-label= "Venue List" role="list">
+        <div
+          className="sidebar-places-container"
+          aria-label="Venue List"
+          role="list"
+        >
           <ul className="sidebar-places-list">
             {searchedVenues.map(kosherVenue => (
               <li key={kosherVenue.id}>
@@ -45,15 +48,14 @@ class Sidebar extends Component {
                   tabIndex="2"
                   onClick={() => {
                     this.clickedVenue(kosherVenue.name);
-                  }}>
+                  }}
+                >
                   {kosherVenue.name}
                 </a>
               </li>
             ))}
           </ul>
         </div>
-
-
       </div>
     );
   }

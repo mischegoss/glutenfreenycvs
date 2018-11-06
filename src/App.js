@@ -80,7 +80,7 @@ class App extends Component {
       () => this.setMarkers()
     );
   };
-/*This sets up the markers using FourSquare data */
+  /*This sets up the markers using FourSquare data */
 
   setMarkers = () => {
     const { searchedVenues, map } = this.state;
@@ -96,7 +96,6 @@ class App extends Component {
           name: venue.name,
           id: index,
           animation: window.google.maps.Animation.DROP
-
         });
 
         marker.addListener("click", () => {
@@ -118,7 +117,7 @@ class App extends Component {
     this.setState({ markers });
   };
 
-/*To populate Info Windos */
+  /*To populate Info Windos */
   setInfoWindow = marker => {
     const { infoWindow, map } = this.state;
     const infoWindowContent = `<p>${marker.name}</p>`;
@@ -133,8 +132,7 @@ class App extends Component {
     }
   };
 
-/*This is the search logic. It filters the venues and the markers */
-
+  /*This is the search logic. It filters the venues and the markers */
 
   searchVenues = query => {
     this.setState({ query });
@@ -182,7 +180,6 @@ class App extends Component {
     );
   }
 }
-
 
 /* This logic was found in Google Maps async tutorial */
 
