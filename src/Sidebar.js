@@ -56,6 +56,7 @@ class Sidebar extends Component {
             ))}
           </ul>
         </div>
+        <p> This app built with Foursquare API and Google Maps </p>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 # Neighborhood Map
 
-
+This app was built with Foursquare data and Google Maps. 
 ## Instructions
 
 This application was created with `create-react-app` and `npm start` to get it installed and launched in the development environment.
