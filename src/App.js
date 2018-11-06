@@ -21,7 +21,8 @@ class App extends Component {
     searchedVenues: [],
     searchedMarkers: []
   };
-  /*This sets up the FourSquare. Version is in the form of YYYYMMDD. venueid is id used for coffee shops.  Used Foursquare developer to set this up */
+  /*This sets up the FourSquare. Version is in the form of YYYYMMDD. venueid is id used for kosher shops.
+    *Used Foursquare developer to set this up */
 
   getFoursquareData = () => {
     const latlng = "40.759057, -73.985131";
@@ -79,6 +80,7 @@ class App extends Component {
       () => this.setMarkers()
     );
   };
+/*This sets up the markers using FourSquare data */
 
   setMarkers = () => {
     const { searchedVenues, map } = this.state;
@@ -116,6 +118,7 @@ class App extends Component {
     this.setState({ markers });
   };
 
+/*To populate Info Windos */
   setInfoWindow = marker => {
     const { infoWindow, map } = this.state;
     const infoWindowContent = `<p>${marker.name}</p>`;
@@ -129,6 +132,9 @@ class App extends Component {
       });
     }
   };
+
+/*This is the search logic. It filters the venues and the markers */
+
 
   searchVenues = query => {
     this.setState({ query });
@@ -176,6 +182,9 @@ class App extends Component {
     );
   }
 }
+
+
+/* This logic was found in Google Maps async tutorial */
 
 function loadJS(src) {
   var ref = window.document.getElementsByTagName("script")[0];

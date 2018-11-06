@@ -21,6 +21,8 @@ For Google Maps set-up, I consulted [How to Write a Google Maps React Component]
 
 To understand Error Boundaries and how to  use them, I followed React's Error Boundaries [tutorial.](https://reactjs.org/docs/error-boundaries.html)
 
+To understand RegExp and how it worked, I used [JavaScript RegExp Reference](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+
 Finally, to handle async functionality, a fellow student on Slack pointed me to the direction of [Making Google Maps work with React](https://www.klaasnotfound.com/2016/11/06/making-google-maps-work-with-react/) tutorial.
 
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+/* This renders the sidebar including search bar */
 
 class Sidebar extends Component {
   clickedVenue = venue => {
@@ -19,7 +20,7 @@ class Sidebar extends Component {
           Find Kosher Eats in NYC
         </h1>
 
-        {/*search bar*/}
+
         <div className="search-places">
           <div className="search-places-bar">
             <div className="search-places-input" tabIndex="1">
@@ -35,8 +36,7 @@ class Sidebar extends Component {
           </div>
         </div>
 
-        {/*list of places*/}
-        <div className="sidebar-places-container" role="list">
+        <div className="sidebar-places-container" aria-label= "Venue List" role="list">
           <ul className="sidebar-places-list">
             {searchedVenues.map(kosherVenue => (
               <li key={kosherVenue.id}>
@@ -52,6 +52,8 @@ class Sidebar extends Component {
             ))}
           </ul>
         </div>
+
+
       </div>
     );
   }
